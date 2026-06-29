@@ -17,6 +17,10 @@ events = [
     Event(2, "Python Workshop")
 ]
 
+#GET all events
+@app.route("/events", methods=["GET"])
+def get_events():
+    return jsonify([event.to_dict() for event in events]), 200
 
 # Create a new event from JSON input
 @app.route("/events", methods=["POST"])
@@ -55,7 +59,6 @@ def update_event(id):
 
     return jsonify(event.to_dict()), 200
 
-# TODO: Task 1 - Define the Problem
 # Remove an event from the list
 @app.route("/events/<int:id>", methods=["DELETE"])
 def delete_event(id):
