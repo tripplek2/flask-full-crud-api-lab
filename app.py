@@ -55,7 +55,7 @@ def update_event(id):
         return jsonify({"error": "Title is required"}), 400
 
     # Update title
-    event.title = data["title"]
+    event.title = data["title"] 
 
     return jsonify(event.to_dict()), 200
 
