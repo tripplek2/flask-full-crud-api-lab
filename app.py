@@ -47,6 +47,8 @@ def update_event(event_id):
         if event.id == event_id:
             event.title = data["title"]
             return jsonify(event.to_dict()), 200
+    # Update title
+    event.title = data["title"] 
 
     return jsonify({"error": "Event not found"}), 404
 
